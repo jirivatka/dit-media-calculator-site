@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DIT Media Calculator — Media &amp; Storage Estimator for Film &amp; TV</title>
+<meta name="description" content="DIT Media Calculator is a native app for Mac and iPad that estimates media and storage for film &amp; TV shoots — camera originals, proxies, dailies &amp; editorial transcodes, cloud storage and upload times, memory cards, shuttle drives, on-set backup and LTO archive — and exports print-ready PDF reports. Coming soon to the App Store.">
+<link rel="canonical" href="https://jirivatka.github.io/dit-media-calculator-site/">
+<meta name="theme-color" content="#2a70f4">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="DIT Media Calculator — Media &amp; Storage Estimator for Film &amp; TV">
+<meta property="og:description" content="Plan camera originals, proxies, dailies &amp; editorial transcodes, cloud storage, upload times, cards, drives, backup and LTO archive — and export clean PDF reports. Coming soon for macOS.">
+<meta property="og:url" content="https://jirivatka.github.io/dit-media-calculator-site/">
+<meta property="og:image" content="https://jirivatka.github.io/dit-media-calculator-site/icon.png">
+<meta property="og:image:alt" content="DIT Media Calculator app icon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DIT Media Calculator — for Film &amp; TV">
+<meta name="twitter:description" content="Media &amp; storage planning for DITs, camera departments and post houses. Coming soon for macOS.">
+<meta name="twitter:image" content="https://jirivatka.github.io/dit-media-calculator-site/icon.png">
+
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "DIT Media Calculator",
+  "operatingSystem": "macOS 14+, iPadOS",
+  "applicationCategory": "MultimediaApplication",
+  "description": "Native macOS app that estimates media and storage for film & TV shoots — camera originals, proxies, dailies & editorial transcodes, cloud storage and upload times, memory cards, shuttle drives, on-set backup and LTO archive — and exports print-ready PDF reports.",
+  "url": "https://jirivatka.github.io/dit-media-calculator-site/",
+  "image": "https://jirivatka.github.io/dit-media-calculator-site/icon.png",
+  "offers": { "@type": "Offer", "availability": "https://schema.org/PreOrder", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<style>
+  :root{
+    --blue:#2a70f4; --teal:#17b6cc; --ink:#0f1720; --muted:#5a6572;
+    --bg:#ffffff; --card:#f6f8fb; --line:#e6ebf1;
+    --grad:linear-gradient(135deg,#2a70f4 0%,#17b6cc 100%);
+    --maxw:1080px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#eef2f7; --muted:#9aa6b4; --bg:#0d1117; --card:#161c25; --line:#232c38; }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* Hero */
+  header.hero{position:relative;overflow:hidden;text-align:center;padding:88px 0 72px}
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:-1;opacity:.10;
+    background:var(--grad);
+    -webkit-mask:radial-gradient(120% 80% at 50% 0%,#000 40%,transparent 75%);
+            mask:radial-gradient(120% 80% at 50% 0%,#000 40%,transparent 75%);
+  }
+  .badge{
+    display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:#fff;background:var(--grad);padding:7px 16px;border-radius:999px;margin-bottom:26px;
+    box-shadow:0 6px 20px rgba(42,112,244,.28);
+  }
+  .app-icon{width:118px;height:118px;border-radius:26px;display:block;margin:0 auto 22px;
+    box-shadow:0 18px 40px rgba(20,40,80,.22)}
+  h1{font-size:clamp(34px,6vw,54px);line-height:1.08;font-weight:800;letter-spacing:-.02em}
+  h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .tagline{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:640px;margin:18px auto 0}
+  .store{margin-top:26px;font-size:15px;color:var(--muted)}
+  .cta{
+    display:inline-block;margin-top:30px;font-weight:600;color:#fff;background:var(--ink);
+    padding:13px 26px;border-radius:12px;
+  }
+  @media (prefers-color-scheme: dark){ .cta{background:#fff;color:#0d1117} }
+  .cta:hover{text-decoration:none;opacity:.9}
+
+  /* Sections */
+  section{padding:56px 0}
+  .eyebrow{text-align:center;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+  h2{text-align:center;font-size:clamp(26px,4vw,36px);font-weight:800;letter-spacing:-.02em;margin:8px 0 6px}
+  .sub{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 40px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .card .ico{font-size:28px;line-height:1;margin-bottom:14px}
+  .card h3{font-size:18px;font-weight:700;margin-bottom:7px}
+  .card p{color:var(--muted);font-size:15px}
+
+  /* Cameras showcase */
+  .cams{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .cam{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center}
+  .cam svg{width:100%;height:118px;color:var(--ink)}
+  .cam .name{font-weight:700;margin-top:12px}
+  .cam .spec{color:var(--muted);font-size:14px}
+  .cam-note{text-align:center;color:var(--muted);font-size:13px;margin-top:22px;opacity:.9}
+
+  /* Audience */
+  .aud{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .pill{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:10px 20px;font-weight:600}
+
+  /* Coming soon */
+  .soon-icon{width:88px;height:88px;border-radius:20px;display:block;margin:0 auto 20px;
+    box-shadow:0 14px 34px rgba(20,40,80,.20)}
+
+  footer{border-top:1px solid var(--line);padding:40px 0 56px;text-align:center;color:var(--muted);font-size:14px}
+  footer a{font-weight:600}
+  footer .fnote{margin-top:10px;font-size:13px;opacity:.85}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">Coming soon</span>
+    <h1>DIT&nbsp;Media&nbsp;Calculator<br><span class="grad">plan every byte of your shoot</span></h1>
+    <p class="tagline">A native app for Mac and iPad that estimates media &amp; storage for film and TV
+      productions — from camera originals to LTO archive — and exports clean, print-ready PDF reports.</p>
+    <p class="store">🍎 Coming soon to the App&nbsp;Store — for Mac&nbsp;&amp;&nbsp;iPad</p>
+    <a class="cta" href="https://github.com/jirivatka/DIT-Media-Calculator-Support/discussions">Join the community &amp; get updates →</a>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <p class="eyebrow">What it does</p>
+    <h2>Every number a DIT needs, before the shoot</h2>
+    <p class="sub">Set up your cameras, audio and post workflow — the app does the math for storage, cards, drives, backup, transcodes and time.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="ico">🎥</div>
+        <h3>Manufacturer-accurate cameras</h3>
+        <p>ARRI, Sony, RED, Blackmagic, Canon, DJI, GoPro and iPhone — with real codecs, resolution modes, frame-rate limits, colour profiles and sensor sizes. Add your own custom cameras too.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🎙️</div>
+        <h3>Production sound</h3>
+        <p>Add your recorder, track count, sample rate and bit depth — the app folds PCM audio storage and sound cards into the daily and project totals.</p>
+      </div>
+      <div class="card">
+        <div class="ico">💾</div>
+        <h3>Storage, per day &amp; per project</h3>
+        <p>Precise originals, audio and proxy volumes for A-, B-, C-cam setups across the whole schedule, including test/grid days.</p>
+      </div>
+      <div class="card">
+        <div class="ico">☁️</div>
+        <h3>Dailies &amp; editorial workflow</h3>
+        <p>Add multiple proxy formats and the app calculates <strong>transcode time</strong> (e.g. in DaVinci Resolve), <strong>dailies cloud storage</strong>, and <strong>upload times</strong> for both cloud delivery and editorial hand-off — at your machine and bandwidth speeds.</p>
+      </div>
+      <div class="card">
+        <div class="ico">💳</div>
+        <h3>Cards, drives &amp; backup</h3>
+        <p>Memory cards per day (with a spare), rotating shuttle drives, and on-set RAID / HDD / LTO backup — sized and counted automatically.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📼</div>
+        <h3>LTO archive plan</h3>
+        <p>A complete archive plan — tape generation, number of copies, tapes needed, verification and total write time.</p>
+      </div>
+      <div class="card">
+        <div class="ico">⏱️</div>
+        <h3>Offload &amp; labour time</h3>
+        <p>Realistic offload, checksum-verify and backup times per day, so you can plan the DIT cart and turnaround with confidence.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📄</div>
+        <h3>Print-ready PDF reports</h3>
+        <p>Standard producer reports and complete technical reports for camera &amp; post — with your logo, contact details and sensor-coverage diagrams.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🗂️</div>
+        <h3>Portable project files</h3>
+        <p>Each project is a single file. Keep it in a Dropbox, Google&nbsp;Drive or iCloud&nbsp;Drive folder to open it on another Mac or iPad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cameras" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <p class="eyebrow">Camera library</p>
+    <h2>Works with the cameras you shoot on</h2>
+    <p class="sub">Manufacturer-accurate codecs, modes and data rates for 40+ bodies — including the industry's flagships.</p>
+    <div class="cams">
+      <figure class="cam">
+        <svg viewBox="0 0 240 150" role="img" aria-label="Cinema camera illustration">
+          <rect x="66" y="40" width="72" height="12" rx="6" fill="currentColor"/>
+          <rect x="74" y="46" width="10" height="20" fill="currentColor"/>
+          <rect x="122" y="46" width="10" height="20" fill="currentColor"/>
+          <rect x="48" y="60" width="120" height="74" rx="12" fill="currentColor"/>
+          <rect x="28" y="74" width="26" height="26" rx="6" fill="currentColor"/>
+          <rect x="166" y="80" width="24" height="36" rx="6" fill="currentColor"/>
+          <circle cx="206" cy="98" r="24" fill="currentColor"/>
+          <circle cx="206" cy="98" r="15" fill="#17b6cc"/>
+          <circle cx="199" cy="91" r="5" fill="#fff" opacity=".85"/>
+          <circle cx="150" cy="122" r="6" fill="#ef4444"/>
+        </svg>
+        <div class="name">ARRI ALEXA</div>
+      </figure>
+      <figure class="cam">
+        <svg viewBox="0 0 240 150" role="img" aria-label="Cinema camera illustration">
+          <rect x="66" y="40" width="72" height="12" rx="6" fill="currentColor"/>
+          <rect x="74" y="46" width="10" height="20" fill="currentColor"/>
+          <rect x="122" y="46" width="10" height="20" fill="currentColor"/>
+          <rect x="48" y="60" width="120" height="74" rx="12" fill="currentColor"/>
+          <rect x="28" y="74" width="26" height="26" rx="6" fill="currentColor"/>
+          <rect x="166" y="80" width="24" height="36" rx="6" fill="currentColor"/>
+          <circle cx="206" cy="98" r="24" fill="currentColor"/>
+          <circle cx="206" cy="98" r="15" fill="#2a70f4"/>
+          <circle cx="199" cy="91" r="5" fill="#fff" opacity=".85"/>
+          <circle cx="150" cy="122" r="6" fill="#ef4444"/>
+        </svg>
+        <div class="name">Sony VENICE</div>
+      </figure>
+      <figure class="cam">
+        <svg viewBox="0 0 240 150" role="img" aria-label="Cinema camera illustration">
+          <rect x="66" y="40" width="72" height="12" rx="6" fill="currentColor"/>
+          <rect x="74" y="46" width="10" height="20" fill="currentColor"/>
+          <rect x="122" y="46" width="10" height="20" fill="currentColor"/>
+          <rect x="48" y="60" width="120" height="74" rx="12" fill="currentColor"/>
+          <rect x="28" y="74" width="26" height="26" rx="6" fill="currentColor"/>
+          <rect x="166" y="80" width="24" height="36" rx="6" fill="currentColor"/>
+          <circle cx="206" cy="98" r="24" fill="currentColor"/>
+          <circle cx="206" cy="98" r="15" fill="#ef4444"/>
+          <circle cx="199" cy="91" r="5" fill="#fff" opacity=".85"/>
+          <circle cx="150" cy="122" r="6" fill="#ef4444"/>
+        </svg>
+        <div class="name">RED V-RAPTOR</div>
+      </figure>
+    </div>
+    <p class="cam-note">…and Blackmagic, Canon, DJI, GoPro, iPhone and more — plus your own custom cameras.</p>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <p class="eyebrow">Who it's for</p>
+    <h2>Built for the people who move the data</h2>
+    <p class="sub">A planning tool for anyone responsible for footage on set and in post.</p>
+    <div class="aud">
+      <span class="pill">Digital Imaging Technicians</span>
+      <span class="pill">Camera departments</span>
+      <span class="pill">Data / media managers</span>
+      <span class="pill">Post-production houses</span>
+      <span class="pill">Line producers &amp; UPMs</span>
+    </div>
+  </div>
+</section>
+
+<section id="soon" style="text-align:center;background:var(--card);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <img class="soon-icon" src="icon.png" width="88" height="88" alt="DIT Media Calculator app icon">
+    <p class="eyebrow">Availability</p>
+    <h2>Coming soon</h2>
+    <p class="sub">DIT Media Calculator is in final testing and will launch on the App Store for
+      Mac and iPad. Follow along and be the first to know.</p>
+    <a class="cta" href="https://github.com/jirivatka/DIT-Media-Calculator-Support/discussions">Get launch updates →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <strong>DIT Media Calculator</strong> — media &amp; storage estimator for film &amp; TV.<br>
+    <a href="https://github.com/jirivatka/DIT-Media-Calculator-Support">Support &amp; community</a>
+    <p class="fnote">Estimates use published, approximate data rates. macOS 14+ / iPadOS. Coming soon.</p>
+    <p class="fnote">© 2026 RedPixl s.r.o. · <a href="https://www.redpixl.pictures">www.redpixl.pictures</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
