@@ -103,6 +103,19 @@
   .cam .spec{color:var(--muted);font-size:14px}
   .cam-note{text-align:center;color:var(--muted);font-size:13px;margin-top:22px;opacity:.9}
 
+  /* Pricing */
+  .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;align-items:stretch;max-width:900px;margin:0 auto}
+  .price{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 24px;position:relative;display:flex;flex-direction:column}
+  .price.feat{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue) inset}
+  .price .tag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px;border-radius:999px;white-space:nowrap}
+  .price h3{font-size:16px;font-weight:700;margin:0 0 10px}
+  .price .amt{font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1}
+  .price .amt span{font-size:16px;font-weight:600;color:var(--muted)}
+  .price .per{color:var(--muted);font-size:13px;margin:6px 0 16px}
+  .price ul{list-style:none;margin:0;padding:0;text-align:left}
+  .price li{color:var(--muted);font-size:15px;padding:6px 0 6px 24px;position:relative}
+  .price li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:700}
+
   /* Audience */
   .aud{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
   .pill{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:10px 20px;font-weight:600}
@@ -252,6 +265,49 @@
       <span class="pill">Post-production houses</span>
       <span class="pill">Line producers &amp; UPMs</span>
     </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <p class="eyebrow">Pricing</p>
+    <h2>Buy once. Use on Mac &amp; iPad.</h2>
+    <p class="sub">Free to try. One payment unlocks everything, forever — no subscription needed. A single purchase covers both Mac and iPad.</p>
+    <div class="price-grid">
+      <div class="price">
+        <h3>Free</h3>
+        <div class="amt">$0</div>
+        <p class="per">try it out</p>
+        <ul>
+          <li>ARRI ALEXA Mini LF</li>
+          <li>Full storage, cards, backup &amp; LTO math</li>
+          <li>On-screen summary &amp; estimates</li>
+        </ul>
+      </div>
+      <div class="price feat">
+        <span class="tag">Most popular</span>
+        <h3>Full Unlock</h3>
+        <div class="amt">$49.99</div>
+        <p class="per">one-time · forever</p>
+        <ul>
+          <li>All 40+ camera models</li>
+          <li>Custom cameras</li>
+          <li>Print-ready PDF reports</li>
+          <li>Mac &amp; iPad included</li>
+        </ul>
+      </div>
+      <div class="price">
+        <h3>Camera Library Updates</h3>
+        <div class="amt">$9.99<span>/yr</span></div>
+        <p class="per">optional</p>
+        <ul>
+          <li>New camera models added after purchase</li>
+          <li>Ongoing spec updates</li>
+          <li>Cancel anytime — keep what you own</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cam-note">Prices in USD, shown at launch on the App&nbsp;Store. The one-time unlock never expires; the updates subscription is entirely optional.</p>
   </div>
 </section>
 
