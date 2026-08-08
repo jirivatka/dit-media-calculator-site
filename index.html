@@ -255,6 +255,13 @@
     #example .ex-report{grid-template-columns:1fr;text-align:center}
     #example .ex-report img{margin:0 auto;max-width:82vw}
   }
+  /* Click-to-zoom lightbox */
+  .lb-zoom{cursor:zoom-in;transition:filter .15s ease}
+  .lb-zoom:hover{filter:brightness(1.06)}
+  #lb{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(6,10,16,.93);padding:20px;cursor:zoom-out}
+  #lb.on{display:flex}
+  #lb img{max-width:96vw;max-height:92vh;width:auto;height:auto;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  #lb .lb-hint{position:absolute;top:14px;right:18px;color:#cbd5e1;font-size:13px;opacity:.8;pointer-events:none}
 </style>
 <section id="example">
   <div class="wrap">
@@ -436,6 +443,25 @@
     <p class="fnote">© 2026 RedPixl s.r.o. · <a href="https://www.redpixl.pictures">www.redpixl.pictures</a></p>
   </div>
 </footer>
+
+<!-- Click-to-zoom lightbox for the app screenshots -->
+<div id="lb" aria-hidden="true"><span class="lb-hint">Click anywhere or press Esc to close</span><img alt=""></div>
+<script>
+(function(){
+  var sel='#example .ex-feature img, #example .ex-macrow img, #example .ex-ipadrow img';
+  var lb=document.getElementById('lb'), img=lb.querySelector('img');
+  function close(){lb.classList.remove('on');img.removeAttribute('src');document.documentElement.style.overflow='';}
+  document.querySelectorAll(sel).forEach(function(el){
+    el.classList.add('lb-zoom');
+    el.addEventListener('click',function(){
+      img.src=el.currentSrc||el.src; img.alt=el.alt||'';
+      lb.classList.add('on'); document.documentElement.style.overflow='hidden';
+    });
+  });
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')close();});
+})();
+</script>
 
 <!-- Cloudflare Web Analytics (cookieless) -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6b6bc560403147eea39ede0ba6a637c6"}'></script>
