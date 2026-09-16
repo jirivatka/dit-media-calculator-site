@@ -1,6 +1,7 @@
 # Search engines: index freely.
 User-agent: *
 Allow: /
+Sitemap: https://ditmediacalculator.com/sitemap.xml
 
 # AI training crawlers: do not use this site's content to train models.
 # Search is deliberately untouched. Googlebot, Bingbot, Applebot and
