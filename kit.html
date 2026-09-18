@@ -2,16 +2,15 @@
 <html lang="en">
 <!-- =====================================================================
      DIT Notion Kit — interest-test subpage.
-     Draft v0.2 · 2026-09-18 · NOT DEPLOYED.
-
-     Deploy to: ditmediacalculator.com/kit.html
+     v0.3 · 2026-09-18 · LIVE at ditmediacalculator.com/kit.html, and still
+     UNLINKED — no homepage teaser, no sitemap entry — until this copy is approved.
      Built from privacy.html's template so head, tokens, header, footer and
      the Cloudflare beacon all match the rest of the site exactly.
 
-     ⛔ BLOCKING: privacy.html must disclose the site's Cloudflare Web Analytics
-        before this page goes live, and must stop claiming an email address is
-        the only thing the website stores. The list itself is already covered
-        by its #email section.
+     v0.3 — rewritten around the job ledger. The earlier "safe to format" hero
+        duplicated Parashoot, which enforces it physically; see ../STRUCTURE.md §1
+        for what each incumbent owns. Name deliberately unchanged, so the
+        privacy page's #email sentence stays accurate.
      ⛔ The checkbox label must match LISTS.kit in the Worker word for word.
         Read it out of ../worker-list/src/index.js — do not retype it from here.
         The Worker is DEPLOYED and shared with the homepage form: one list,
@@ -21,14 +20,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DIT Notion Kit — DIT Media Calculator</title>
-<meta name="description" content="A Notion system for camera-department freelancers: card and roll register with a safe-to-format gate, drive chain of custody, LUT approvals, kit rental rates and invoices. In development.">
+<meta name="description" content="A Notion job ledger for freelance DITs: rates, invoices and overdue, kit rental, drive custody, look approvals. Imports the roll record from your offload software. Does not replace Silverstack, ShotPut Pro or Parashoot. In development.">
 <link rel="canonical" href="https://ditmediacalculator.com/kit.html">
 <meta name="theme-color" content="#2a70f4">
 <meta name="robots" content="index,follow">
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <meta property="og:title" content="DIT Notion Kit">
-<meta property="og:description" content="Where the rest of the job lives: what was shot, whether it is really backed up, where the drives are, and whether the invoice was paid.">
+<meta property="og:description" content="Your offload software handles the footage. This handles what the job pays, whose drive is in your car, and which invoice is late.">
 <meta property="og:url" content="https://ditmediacalculator.com/kit.html">
 <meta property="og:type" content="website">
 <style>
@@ -67,10 +66,6 @@
   li{margin:6px 0}
   li strong{color:var(--ink)}
 
-  .gate{border:1px solid var(--line);border-left:3px solid var(--blue);
-    border-radius:12px;padding:16px 18px;margin:16px 0 8px;background:var(--card)}
-  .gate code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;color:var(--ink)}
-
   .signup{background:var(--card);border:1px solid var(--line);border-radius:16px;
     padding:26px 24px;margin:32px 0 8px}
   .signup h2{margin-top:0}
@@ -97,7 +92,7 @@
     <img class="app-icon" src="icon.png" width="72" height="72" alt="DIT Media Calculator app icon">
     <p class="eyebrow">In development</p>
     <h1>DIT Notion Kit</h1>
-    <p class="updated">A companion to DIT Media Calculator · not released yet</p>
+    <p class="updated">The business side of the job · a companion to DIT Media Calculator</p>
   </div>
 </header>
 
@@ -105,44 +100,52 @@
   <div class="wrap">
 
     <div class="lead">
-      <strong>The calculator tells you how much footage you are about to make.</strong>
-      This is where the rest of the job lives: what was actually shot, whether it
-      is really backed up, where the drives physically are tonight, and whether
-      the invoice was ever paid.
+      <strong>Silverstack offloads and verifies. Parashoot decides when a card is
+      safe to wipe. Canister catalogues the tape.</strong> None of them knows what
+      the job pays, whose drive is in the back of your car tonight, or which
+      invoice is three weeks late. That is what this is for.
     </div>
 
-    <h2>The part that matters</h2>
-    <p class="body-ink">A card does not go green until the number of verified
-      copies that job requires is actually ticked — and a card offloaded with no
-      checksum never goes green at all.</p>
+    <h2>One page per job</h2>
+    <p class="body-ink">What this job cost you, what you are owed, and where your
+      kit is.</p>
+    <p>Enquiry to paid: held dates, confirmed days, overtime, the kit that went out
+      with it at its rental rate, the invoice, and how overdue it is. The footage
+      record sits alongside it — imported, never typed.</p>
 
-    <div class="gate">
-      <p class="body-ink" style="margin:0"><code>⛔ DO NOT FORMAT</code> — 3 cards on Nightshade</p>
-      <p style="margin:6px 0 0;font-size:14px">A005 · copy 2 not verified · B002 · no checksum method · B003 · copy 2 not verified</p>
-    </div>
-    <p>That view is the default screen of the whole kit. Everything below it is
-      a tracker; this is the part that exists because formatting a card that was
-      not really backed up is the mistake you only make once.</p>
+    <h2>It does not touch your footage workflow</h2>
+    <p class="body-ink">On purpose. Those tools are good and you already own them.</p>
+    <ul>
+      <li><strong>Offload, checksums, MHL</strong> — ShotPut Pro, Silverstack, Hedge, YoYotta.</li>
+      <li><strong>Deciding a card is safe to wipe</strong> — Parashoot, which enforces it physically. A checkbox in a database cannot, and should not pretend to.</li>
+      <li><strong>Tape catalogues and finding a clip years later</strong> — Canister, YoYottaID, myLTO.</li>
+      <li><strong>Looks, scopes, QC</strong> — Silverstack.</li>
+    </ul>
+    <p>The roll record comes in from the <strong>ASC MHL or CSV your offload
+      software already wrote</strong> — roll, file count, size, hash method, date.
+      You are never asked to retype a checksum, and there is no second opinion
+      about whether a card is backed up.</p>
 
     <h2>What is in it</h2>
     <ul>
-      <li><strong>Jobs</strong> — enquiry to paid, with day rate, kit rate and how many verified copies that production demands.</li>
-      <li><strong>Shoot days</strong> — call, wrap, overtime, cameras rolling, TB in.</li>
-      <li><strong>Cards &amp; rolls</strong> — roll, card serial, size, each copy and its checksum, and the format gate above.</li>
-      <li><strong>Drives</strong> — chain of custody. Who has it, where it went, whether it came back.</li>
-      <li><strong>LUTs &amp; CDLs</strong> — versions, and which look the DP actually approved.</li>
+      <li><strong>Jobs</strong> — enquiry · hold · confirmed · shooting · wrapped · invoiced · paid, on one board.</li>
+      <li><strong>Rates</strong> — day, prep and kit rental, per job, in the currency that job pays in.</li>
+      <li><strong>Invoices</strong> — issued, due, paid, and days overdue calculated for you.</li>
       <li><strong>Kit list</strong> — serials, insurance values, service dates, and the rental rate that feeds the invoice.</li>
-      <li><strong>Invoices</strong> — issued, due, paid, days overdue.</li>
-      <li><strong>Wrap report</strong> — one page per job to hand the production: day count, total TB, card register, incidents, drives handed over.</li>
+      <li><strong>Drives</strong> — not which volume holds which clip, but <em>who physically has it</em>, where it went, and whether it came back.</li>
+      <li><strong>Look approvals</strong> — which LUT or CDL the DP signed off, and when. The record, not the grading.</li>
+      <li><strong>Rolls</strong> — imported from MHL or CSV, one row per roll.</li>
+      <li><strong>Contacts &amp; delivery specs</strong> — who pays late, and what each production wants delivered.</li>
+      <li><strong>Season view</strong> — holds and confirmed days on one calendar, so a double-booking is visible before it happens.</li>
     </ul>
 
     <h2>Where it does not work</h2>
     <p class="body-ink">Notion is useless with no signal, and sets are basements,
       stages, forests and tunnels.</p>
-    <p>So this is not built for tapping through during a take. Capture on set stays
-      where it already is — paper, the card, the calculator. The kit is filled at
-      wrap and in the truck, in one pass per day. A tool that is honest about
-      where it does not work is worth more than one that is not.</p>
+    <p>So this is not built for tapping through during a take. It is filled at wrap
+      and in the truck, in one pass — and most of the footage side arrives by
+      import rather than typing. A tool that is honest about where it does not work
+      is worth more than one that is not.</p>
 
     <div class="signup">
       <h2 style="margin-bottom:6px">Tell me when it ships</h2>
