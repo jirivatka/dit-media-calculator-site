@@ -13,12 +13,15 @@
 <meta property="og:title" content="DIT Media Calculator — Media &amp; Storage Estimator for Film &amp; TV">
 <meta property="og:description" content="Plan camera originals, proxies, dailies &amp; editorial transcodes, cloud storage, upload times, cards, drives, backup and LTO archive — and export clean PDF reports. Available now on Mac, iPad and iPhone.">
 <meta property="og:url" content="https://ditmediacalculator.com/">
-<meta property="og:image" content="https://ditmediacalculator.com/icon.png">
-<meta property="og:image:alt" content="DIT Media Calculator app icon">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://ditmediacalculator.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="DIT Media Calculator — plan every byte of your shoot. On Mac, iPad and iPhone.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DIT Media Calculator — for Film &amp; TV">
 <meta name="twitter:description" content="Media &amp; storage planning for DITs, camera departments and post houses. Available now on Mac, iPad and iPhone.">
-<meta name="twitter:image" content="https://ditmediacalculator.com/icon.png">
+<meta name="twitter:image" content="https://ditmediacalculator.com/og-image.png">
 
 <link rel="icon" type="image/png" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
@@ -34,6 +37,12 @@
   "url": "https://ditmediacalculator.com/",
   "image": "https://ditmediacalculator.com/icon.png",
   "downloadUrl": "https://apps.apple.com/app/dit-media-calculator/id6791876002",
+  "softwareVersion": "1.1.3",
+  "screenshot": [
+    "https://ditmediacalculator.com/shot-summary.png",
+    "https://ditmediacalculator.com/shot-mac-camera.png",
+    "https://ditmediacalculator.com/shot-ipad-storage.png"
+  ],
   "featureList": [
     "Camera-original storage estimates for 40+ cinema cameras",
     "Memory card, shuttle drive and on-set backup counts",
@@ -432,6 +441,116 @@
       </div>
     </div>
     <p class="cam-note">Prices in USD, as shown on the App&nbsp;Store. The one-time unlock never expires; the updates subscription is entirely optional.</p>
+  </div>
+</section>
+
+<style>
+  #faq .faq-list{max-width:820px;margin:28px auto 0;text-align:left;border-top:1px solid var(--line)}
+  #faq details{border-bottom:1px solid var(--line)}
+  #faq summary{list-style:none;cursor:pointer;padding:20px 44px 20px 2px;position:relative;font-size:18px;font-weight:700;color:var(--ink)}
+  #faq summary::-webkit-details-marker{display:none}
+  #faq summary::after{content:"+";position:absolute;right:8px;top:15px;font-size:26px;font-weight:400;line-height:1;color:var(--blue)}
+  #faq details[open] summary::after{content:"\2013"}
+  #faq .faq-a{padding:0 2px 22px;color:var(--muted);font-size:16px;line-height:1.65}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much storage does a camera use per day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DIT Media Calculator works it out from real manufacturer data rates. Enter your camera, codec, resolution and frame rate, and it shows storage per shooting day and for the whole project — split into originals, proxies and audio — instead of a generic gigabytes-per-minute rule of thumb."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which cameras and codecs does it support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "40+ cinema bodies from ARRI, RED, Sony, Blackmagic, Canon, Panasonic and more, with their real sensor modes, codec data rates and recording limits — including ARRIRAW, X-OCN, ProRes, BRAW and R3D. Anything not in the catalogue you can add as a custom camera."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it size cards, drives, backup and LTO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. It works out camera cards per day (with a three-cards-per-camera safety floor), shuttle drives, on-set RAID and backup sets, LTO archive tapes and cloud dailies, and estimates offload, transcode and upload times."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it available on iPad and iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — DIT Media Calculator is a Universal app for Mac, iPad and iPhone, so one purchase covers all three. Each project is a single .ditproj file you can open on any of your devices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it need an account or internet, and is my data private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No account, no cloud lock-in and no tracking. The app makes no network calls of its own; your projects are ordinary .ditproj files stored wherever you choose — locally, or in a folder like Dropbox, Google Drive or a NAS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free version, and what does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is free to try. A one-time Full Unlock enables the full camera catalogue and PDF export, with no subscription, and is a Universal Purchase across Mac, iPad and iPhone. An optional yearly Camera Updates subscription adds new bodies released after your purchase — you never need it to keep what you already own."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I hand production a report?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — export a print-ready PDF, Standard or full Technical, with your own logo and DIT contact details, sensor-coverage graphics and a clean per-day and per-project breakdown. It prints correctly on black-and-white printers too."
+      }
+    }
+  ]
+}
+</script>
+<section id="faq">
+  <div class="wrap">
+    <p class="eyebrow">FAQ</p>
+    <h2>Questions DITs actually ask</h2>
+    <div class="faq-list">
+      <details>
+        <summary>How much storage does a camera use per day?</summary>
+        <div class="faq-a"><p>DIT Media Calculator works it out from real manufacturer data rates. Enter your camera, codec, resolution and frame rate, and it shows storage per shooting day and for the whole project — split into originals, proxies and audio — instead of a generic gigabytes-per-minute rule of thumb.</p></div>
+      </details>
+      <details>
+        <summary>Which cameras and codecs does it support?</summary>
+        <div class="faq-a"><p>40+ cinema bodies from ARRI, RED, Sony, Blackmagic, Canon, Panasonic and more, with their real sensor modes, codec data rates and recording limits — including ARRIRAW, X-OCN, ProRes, BRAW and R3D. Anything not in the catalogue you can add as a custom camera.</p></div>
+      </details>
+      <details>
+        <summary>Does it size cards, drives, backup and LTO?</summary>
+        <div class="faq-a"><p>Yes. It works out camera cards per day (with a three-cards-per-camera safety floor), shuttle drives, on-set RAID and backup sets, LTO archive tapes and cloud dailies, and estimates offload, transcode and upload times.</p></div>
+      </details>
+      <details>
+        <summary>Is it available on iPad and iPhone?</summary>
+        <div class="faq-a"><p>Yes — DIT Media Calculator is a Universal app for Mac, iPad and iPhone, so one purchase covers all three. Each project is a single .ditproj file you can open on any of your devices.</p></div>
+      </details>
+      <details>
+        <summary>Does it need an account or internet, and is my data private?</summary>
+        <div class="faq-a"><p>No account, no cloud lock-in and no tracking. The app makes no network calls of its own; your projects are ordinary .ditproj files stored wherever you choose — locally, or in a folder like Dropbox, Google Drive or a NAS.</p></div>
+      </details>
+      <details>
+        <summary>Is there a free version, and what does it cost?</summary>
+        <div class="faq-a"><p>It is free to try. A one-time Full Unlock enables the full camera catalogue and PDF export, with no subscription, and is a Universal Purchase across Mac, iPad and iPhone. An optional yearly Camera Updates subscription adds new bodies released after your purchase — you never need it to keep what you already own.</p></div>
+      </details>
+      <details>
+        <summary>Can I hand production a report?</summary>
+        <div class="faq-a"><p>Yes — export a print-ready PDF, Standard or full Technical, with your own logo and DIT contact details, sensor-coverage graphics and a clean per-day and per-project breakdown. It prints correctly on black-and-white printers too.</p></div>
+      </details>
+    </div>
   </div>
 </section>
 
