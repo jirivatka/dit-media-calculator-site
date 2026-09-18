@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<!-- =====================================================================
+     DIT Notion Kit — interest-test subpage.
+     Draft v0.2 · 2026-09-18 · NOT DEPLOYED.
+
+     Deploy to: ditmediacalculator.com/kit.html
+     Built from privacy.html's template so head, tokens, header, footer and
+     the Cloudflare beacon all match the rest of the site exactly.
+
+     ⛔ BLOCKING: privacy.html must disclose the site's Cloudflare Web Analytics
+        before this page goes live, and must stop claiming an email address is
+        the only thing the website stores. The list itself is already covered
+        by its #email section.
+     ⛔ The checkbox label must match LISTS.kit in the Worker word for word.
+        Read it out of ../worker-list/src/index.js — do not retype it from here.
+        The Worker is DEPLOYED and shared with the homepage form: one list,
+        tagged per form, which is why this page sends list:'kit'.
+     ===================================================================== -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DIT Notion Kit — DIT Media Calculator</title>
+<meta name="description" content="A Notion system for camera-department freelancers: card and roll register with a safe-to-format gate, drive chain of custody, LUT approvals, kit rental rates and invoices. In development.">
+<link rel="canonical" href="https://ditmediacalculator.com/kit.html">
+<meta name="theme-color" content="#2a70f4">
+<meta name="robots" content="index,follow">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta property="og:title" content="DIT Notion Kit">
+<meta property="og:description" content="Where the rest of the job lives: what was shot, whether it is really backed up, where the drives are, and whether the invoice was paid.">
+<meta property="og:url" content="https://ditmediacalculator.com/kit.html">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --blue:#2a70f4; --teal:#17b6cc; --ink:#0f1720; --muted:#5a6572;
+    --bg:#ffffff; --card:#f6f8fb; --line:#e6ebf1;
+    --grad:linear-gradient(135deg,#2a70f4 0%,#17b6cc 100%);
+    --maxw:760px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#eef2f7; --muted:#9aa6b4; --bg:#0d1117; --card:#161c25; --line:#232c38; }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header.top{text-align:center;padding:64px 0 24px}
+  .app-icon{width:72px;height:72px;border-radius:17px;display:block;margin:0 auto 18px;
+    box-shadow:0 12px 30px rgba(20,40,80,.20)}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+  h1{font-size:clamp(28px,5vw,40px);font-weight:800;letter-spacing:-.02em;margin:6px 0 10px}
+  .updated{color:var(--muted);font-size:14px}
+
+  main{padding:8px 0 40px}
+  .lead{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:22px 0 28px;font-size:17px}
+  .lead strong{color:var(--ink)}
+  h2{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:30px 0 8px}
+  p{color:var(--muted);margin:0 0 12px}
+  p.body-ink{color:var(--ink)}
+  ul{color:var(--muted);margin:0 0 12px 20px}
+  li{margin:6px 0}
+  li strong{color:var(--ink)}
+
+  .gate{border:1px solid var(--line);border-left:3px solid var(--blue);
+    border-radius:12px;padding:16px 18px;margin:16px 0 8px;background:var(--card)}
+  .gate code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;color:var(--ink)}
+
+  .signup{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:26px 24px;margin:32px 0 8px}
+  .signup h2{margin-top:0}
+  .price{font-size:26px;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin:0 0 4px}
+  input[type=email]{width:100%;padding:12px 14px;font:inherit;color:var(--ink);
+    background:var(--bg);border:1px solid var(--line);border-radius:10px}
+  .consent{display:flex;gap:10px;align-items:flex-start;margin:14px 0 16px;font-size:14px;color:var(--muted)}
+  .consent input{margin-top:4px;flex:none}
+  button{width:100%;padding:13px 18px;font:inherit;font-weight:700;color:#fff;
+    background:var(--grad);border:0;border-radius:10px;cursor:pointer}
+  button[disabled]{opacity:.6;cursor:default}
+  .msg{min-height:1.3em;margin:12px 0 0;font-size:14px;color:var(--muted)}
+  .hp{position:absolute;left:-9999px}
+
+  footer{border-top:1px solid var(--line);padding:32px 0 56px;text-align:center;color:var(--muted);font-size:14px;margin-top:24px}
+  footer a{font-weight:600}
+  footer .fnote{margin-top:10px;font-size:13px;opacity:.85}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img class="app-icon" src="icon.png" width="72" height="72" alt="DIT Media Calculator app icon">
+    <p class="eyebrow">In development</p>
+    <h1>DIT Notion Kit</h1>
+    <p class="updated">A companion to DIT Media Calculator · not released yet</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="lead">
+      <strong>The calculator tells you how much footage you are about to make.</strong>
+      This is where the rest of the job lives: what was actually shot, whether it
+      is really backed up, where the drives physically are tonight, and whether
+      the invoice was ever paid.
+    </div>
+
+    <h2>The part that matters</h2>
+    <p class="body-ink">A card does not go green until the number of verified
+      copies that job requires is actually ticked — and a card offloaded with no
+      checksum never goes green at all.</p>
+
+    <div class="gate">
+      <p class="body-ink" style="margin:0"><code>⛔ DO NOT FORMAT</code> — 3 cards on Nightshade</p>
+      <p style="margin:6px 0 0;font-size:14px">A005 · copy 2 not verified · B002 · no checksum method · B003 · copy 2 not verified</p>
+    </div>
+    <p>That view is the default screen of the whole kit. Everything below it is
+      a tracker; this is the part that exists because formatting a card that was
+      not really backed up is the mistake you only make once.</p>
+
+    <h2>What is in it</h2>
+    <ul>
+      <li><strong>Jobs</strong> — enquiry to paid, with day rate, kit rate and how many verified copies that production demands.</li>
+      <li><strong>Shoot days</strong> — call, wrap, overtime, cameras rolling, TB in.</li>
+      <li><strong>Cards &amp; rolls</strong> — roll, card serial, size, each copy and its checksum, and the format gate above.</li>
+      <li><strong>Drives</strong> — chain of custody. Who has it, where it went, whether it came back.</li>
+      <li><strong>LUTs &amp; CDLs</strong> — versions, and which look the DP actually approved.</li>
+      <li><strong>Kit list</strong> — serials, insurance values, service dates, and the rental rate that feeds the invoice.</li>
+      <li><strong>Invoices</strong> — issued, due, paid, days overdue.</li>
+      <li><strong>Wrap report</strong> — one page per job to hand the production: day count, total TB, card register, incidents, drives handed over.</li>
+    </ul>
+
+    <h2>Where it does not work</h2>
+    <p class="body-ink">Notion is useless with no signal, and sets are basements,
+      stages, forests and tunnels.</p>
+    <p>So this is not built for tapping through during a take. Capture on set stays
+      where it already is — paper, the card, the calculator. The kit is filled at
+      wrap and in the truck, in one pass per day. A tool that is honest about
+      where it does not work is worth more than one that is not.</p>
+
+    <div class="signup">
+      <h2 style="margin-bottom:6px">Tell me when it ships</h2>
+      <p class="price">$39 one-time</p>
+      <p style="margin-bottom:18px">Leave your address and you will hear once, when it
+        is ready, at a lower price than that. Nothing else, ever — this list sends
+        no newsletter.</p>
+
+      <form id="kitform" novalidate>
+        <input type="email" id="kitemail" required autocomplete="email" placeholder="you@example.com">
+
+        <label class="consent">
+          <input type="checkbox" id="kitconsent" required>
+          <span>I would like occasional email about the DIT Notion Kit. I can unsubscribe at any time.</span>
+        </label>
+
+        <!-- Bots fill every field they find; people never see this one.
+             ⛔ The name must stay "website" — that is the key the Worker checks. -->
+        <input class="hp" type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <button type="submit" id="kitbtn">Put me on the list</button>
+        <p class="msg" id="kitmsg" role="status" aria-live="polite"></p>
+      </form>
+
+      <noscript>
+        <p class="msg">This form needs JavaScript, which is on for almost everyone
+          but evidently not for you. Write to us and we will add you by hand.</p>
+      </noscript>
+    </div>
+
+    <p style="font-size:13px">Stored: your address, the date, and the sentence
+      above. No name, no IP, no open tracking, no third-party mailing service.
+      See the <a href="privacy.html">privacy policy</a>.</p>
+
+    <h2 id="leaving">Leaving</h2>
+    <p>Enter the same address and it is deleted immediately — no confirmation
+      step, no “are you sure”, no link to click in an email.</p>
+    <form id="leaveform" novalidate style="max-width:420px">
+      <input type="email" id="leaveemail" autocomplete="email" placeholder="you@example.com" spellcheck="false">
+      <button type="submit" id="leavebtn" style="margin-top:10px;background:none;border:1px solid var(--line);color:var(--ink)">Remove me</button>
+      <p class="msg" id="leavemsg" role="status" aria-live="polite"></p>
+    </form>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="/">← Back to DIT Media Calculator</a>
+    <p class="fnote">© 2026 RedPixl s.r.o. · <a href="https://www.redpixl.pictures">www.redpixl.pictures</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Shapes below match ../worker-list/src/index.js as deployed: success is
+  // {ok:true}, a duplicate is {ok:true, already:true}, someone already on the
+  // app list joining this one is {ok:true, added:"kit"}, and a refusal is
+  // {error:"…"} with a 4xx. ⛔ Re-read that file if it changes.
+  var BASE = 'https://ditmedia-list.jiri-vatka.workers.dev';
+
+  function post(path, payload) {
+    return fetch(BASE + path, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (r) { return r.json().catch(function () { return {}; }); });
+  }
+
+  var f = document.getElementById('kitform'),
+      msg = document.getElementById('kitmsg'),
+      btn = document.getElementById('kitbtn');
+
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('kitemail').value.trim();
+    var consent = document.getElementById('kitconsent').checked;
+    var hp = document.getElementById('website').value;
+
+    if (!email || email.indexOf('@') < 1) { msg.textContent = 'That address does not look right.'; return; }
+    if (!consent) { msg.textContent = 'Please tick the box, so the consent is on record.'; return; }
+
+    btn.disabled = true; msg.textContent = 'Sending…';
+
+    post('/subscribe', { email: email, consent: true, list: 'kit', website: hp })
+      .then(function (d) {
+        if (d.already)   { msg.textContent = 'You are already on the list.'; f.reset(); }
+        else if (d.ok)   { msg.textContent = 'Done — you are on the list.'; f.reset(); }
+        else             { msg.textContent = d.error || 'That did not go through. Try again in a minute.'; }
+      })
+      .catch(function () { msg.textContent = 'That did not go through. Try again in a minute.'; })
+      .finally(function () { btn.disabled = false; });
+  });
+
+  var lf = document.getElementById('leaveform'),
+      lmsg = document.getElementById('leavemsg'),
+      lbtn = document.getElementById('leavebtn');
+
+  lf.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('leaveemail').value.trim();
+    if (!email || email.indexOf('@') < 1) { lmsg.textContent = 'Enter the address to remove.'; return; }
+
+    lbtn.disabled = true; lmsg.textContent = 'Removing…';
+
+    // The Worker answers identically whether or not the address was there, so
+    // the list cannot be probed. Say the same thing back.
+    post('/unsubscribe', { email: email })
+      .then(function (d) {
+        lmsg.textContent = d.ok ? 'Removed. That address is not on the list.'
+                                : (d.error || 'That did not go through. Try again in a minute.');
+        if (d.ok) lf.reset();
+      })
+      .catch(function () { lmsg.textContent = 'That did not go through. Try again in a minute.'; })
+      .finally(function () { lbtn.disabled = false; });
+  });
+})();
+</script>
+
+<!-- Cloudflare Web Analytics (cookieless) — same token as the rest of the site,
+     so /kit.html appears as its own path in the dashboard. -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6b6bc560403147eea39ede0ba6a637c6"}'></script>
+
+</body>
+</html>
