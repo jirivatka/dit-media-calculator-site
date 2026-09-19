@@ -143,6 +143,12 @@
   .aud{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
   .pill{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:10px 20px;font-weight:600}
 
+  /* Launch film */
+  #film{padding:8px 0 24px}
+  #film figure{margin:0 auto;max-width:960px}
+  #film video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:16px;border:1px solid var(--line);background:#0d1117;box-shadow:0 18px 50px rgba(20,40,80,.18)}
+  #film figcaption{text-align:center;color:var(--muted);font-size:13px;margin-top:12px}
+
   /* Coming soon */
   .soon-icon{width:88px;height:88px;border-radius:20px;display:block;margin:0 auto 20px;
     box-shadow:0 14px 34px rgba(20,40,80,.20)}
@@ -167,6 +173,17 @@
     <a class="cta secondary" href="https://github.com/jirivatka/DIT-Media-Calculator-Support/discussions">Join the community &amp; get updates →</a>
   </div>
 </header>
+
+<section id="film">
+  <div class="wrap">
+    <figure>
+      <video controls preload="none" playsinline poster="video/dit-media-calculator-poster.jpg" aria-label="DIT Media Calculator in 40 seconds: a two-camera drama, 24 shoot days, 392.65 TB">
+        <source src="video/dit-media-calculator.mp4" type="video/mp4">
+      </video>
+      <figcaption>40 seconds. A two-camera drama, 24 shoot days &mdash; the real app, the real numbers.</figcaption>
+    </figure>
+  </div>
+</section>
 
 <section id="features">
   <div class="wrap">
